@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://fegendata.azurewebsites.net",
+      "url": "http://api.pascalate.com",
       "description": "Pascalate helps App Developers generate random yet valid test Data to test or seed their applications"
     }
   ],

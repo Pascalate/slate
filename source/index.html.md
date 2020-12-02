@@ -22,7 +22,7 @@ headingLevel: 2
 
 Base URLs:
 
-* <a href="https://fegendata.azurewebsites.net">https://fegendata.azurewebsites.net</a>
+* <a href="http://api.pascalate.com">http://api.pascalate.com</a>
 
 <h1 id="pascalate-api-documentation-date">Date</h1>
 
@@ -34,7 +34,7 @@ Date Generators
 
 ```shell
 # You can also use wget
-curl -X GET https://fegendata.azurewebsites.net/api/Date \
+curl -X GET http://api.pascalate.com/api/Date \
   -H 'Accept: text/plain'
 
 ```
@@ -46,7 +46,7 @@ const headers = {
   'Accept':'text/plain'
 };
 
-fetch('https://fegendata.azurewebsites.net/api/Date',
+fetch('http://api.pascalate.com/api/Date',
 {
   method: 'GET',
 
@@ -119,14 +119,14 @@ Generate Valid random Identifiers
 
 ```shell
 # You can also use wget
-curl -X GET https://fegendata.azurewebsites.net/api/Id/numerical
+curl -X GET http://api.pascalate.com/api/Id/numerical
 
 ```
 
 ```nodejs
 const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/numerical',
+fetch('http://api.pascalate.com/api/Id/numerical',
 {
   method: 'GET'
 
@@ -163,14 +163,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://fegendata.azurewebsites.net/api/Id/ssn
+curl -X GET http://api.pascalate.com/api/Id/ssn
 
 ```
 
 ```nodejs
 const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/ssn',
+fetch('http://api.pascalate.com/api/Id/ssn',
 {
   method: 'GET'
 
@@ -207,14 +207,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://fegendata.azurewebsites.net/api/Id/ein
+curl -X GET http://api.pascalate.com/api/Id/ein
 
 ```
 
 ```nodejs
 const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/ein',
+fetch('http://api.pascalate.com/api/Id/ein',
 {
   method: 'GET'
 
@@ -251,14 +251,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://fegendata.azurewebsites.net/api/Id/soundex
+curl -X GET http://api.pascalate.com/api/Id/soundex
 
 ```
 
 ```nodejs
 const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/soundex',
+fetch('http://api.pascalate.com/api/Id/soundex',
 {
   method: 'GET'
 
@@ -295,7 +295,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://fegendata.azurewebsites.net/api/Id/driverlicense \
+curl -X POST http://api.pascalate.com/api/Id/driverlicense \
   -H 'Content-Type: application/json-patch+json'
 
 ```
@@ -315,7 +315,7 @@ const headers = {
   'Content-Type':'application/json-patch+json'
 };
 
-fetch('https://fegendata.azurewebsites.net/api/Id/driverlicense',
+fetch('http://api.pascalate.com/api/Id/driverlicense',
 {
   method: 'POST',
   body: JSON.stringify(inputBody),
