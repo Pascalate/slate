@@ -362,7 +362,7 @@
 <p>Base URLs:</p>
 
 <ul>
-<li><a href="https://fegendata.azurewebsites.net">https://fegendata.azurewebsites.net</a></li>
+<li><a href="http://api.pascalate.com">http://api.pascalate.com</a></li>
 </ul>
 
 <h1 id="pascalate-api-documentation-date">Date</h1>
@@ -373,7 +373,7 @@
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://fegendata.azurewebsites.net/api/Date <span class="se">\</span>
+curl <span class="nt">-X</span> GET http://api.pascalate.com/api/Date <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: text/plain'</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>const fetch = require('node-fetch');
@@ -382,7 +382,7 @@ const headers = {
   'Accept':'text/plain'
 };
 
-fetch('https://fegendata.azurewebsites.net/api/Date',
+fetch('http://api.pascalate.com/api/Date',
 {
   method: 'GET',
 
@@ -522,11 +522,11 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://fegendata.azurewebsites.net/api/Id/numerical
+curl <span class="nt">-X</span> GET http://api.pascalate.com/api/Id/numerical
 
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/numerical',
+fetch('http://api.pascalate.com/api/Id/numerical',
 {
   method: 'GET'
 
@@ -586,11 +586,11 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://fegendata.azurewebsites.net/api/Id/ssn
+curl <span class="nt">-X</span> GET http://api.pascalate.com/api/Id/ssn
 
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/ssn',
+fetch('http://api.pascalate.com/api/Id/ssn',
 {
   method: 'GET'
 
@@ -650,11 +650,11 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://fegendata.azurewebsites.net/api/Id/ein
+curl <span class="nt">-X</span> GET http://api.pascalate.com/api/Id/ein
 
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/ein',
+fetch('http://api.pascalate.com/api/Id/ein',
 {
   method: 'GET'
 
@@ -714,11 +714,11 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://fegendata.azurewebsites.net/api/Id/soundex
+curl <span class="nt">-X</span> GET http://api.pascalate.com/api/Id/soundex
 
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>const fetch = require('node-fetch');
 
-fetch('https://fegendata.azurewebsites.net/api/Id/soundex',
+fetch('http://api.pascalate.com/api/Id/soundex',
 {
   method: 'GET'
 
@@ -778,7 +778,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://fegendata.azurewebsites.net/api/Id/driverlicense <span class="se">\</span>
+curl <span class="nt">-X</span> POST http://api.pascalate.com/api/Id/driverlicense <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json-patch+json'</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>const fetch = require('node-fetch');
@@ -795,7 +795,7 @@ const headers = {
   'Content-Type':'application/json-patch+json'
 };
 
-fetch('https://fegendata.azurewebsites.net/api/Id/driverlicense',
+fetch('http://api.pascalate.com/api/Id/driverlicense',
 {
   method: 'POST',
   body: JSON.stringify(inputBody),
