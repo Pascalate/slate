@@ -1,241 +1,453 @@
 ---
-title: API Reference
+title: Pascalate API Documentation v1
+language_tabs:
+  - shell: Curl
+  - nodejs: NodeJS
+language_clients:
+  - shell: ""
+  - nodejs: ""
+toc_footers: []
+includes: []
+search: false
+highlight_theme: darkula
+headingLevel: 2
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
-
-search: true
-
-code_clipboard: true
 ---
 
-# Introduction
+<!-- Generator: Widdershins v4.0.1 -->
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+<h1 id="pascalate-api-documentation">Pascalate API Documentation v1</h1>
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Base URLs:
 
-# Authentication
+* <a href="https://fegendata.azurewebsites.net">https://fegendata.azurewebsites.net</a>
 
-> To authorize, use this code:
+<h1 id="pascalate-api-documentation-date">Date</h1>
 
-```ruby
-require 'kittn'
+Date Generators
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+## Generate a date
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+> Code samples
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
+# You can also use wget
+curl -X GET https://fegendata.azurewebsites.net/api/Date \
+  -H 'Accept: text/plain'
+
 ```
 
-```javascript
-const kittn = require('kittn');
+```nodejs
+const fetch = require('node-fetch');
 
-let api = kittn.authorize('meowmeowmeow');
+const headers = {
+  'Accept':'text/plain'
+};
+
+fetch('https://fegendata.azurewebsites.net/api/Date',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+`GET /api/Date`
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+sample date remarks
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+<h3 id="generate-a-date-parameters">Parameters</h3>
 
-`Authorization: meowmeowmeow`
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|type|query|[DateRequestType](#schemadaterequesttype)|false|Date request type|
+|ageType|query|[UserAgeType](#schemauseragetype)|false|Desired age type. Used only if type is set to birthday|
+|min|query|string|false|Minimum date|
+|max|query|string|false|Maximum date|
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+#### Enumerated Values
 
-# Kittens
+|Parameter|Value|
+|---|---|
+|type|Birthday|
+|type|Future|
+|type|Past|
+|ageType|Infant|
+|ageType|Child|
+|ageType|Teenager|
+|ageType|Adult|
+|ageType|Youth|
+|ageType|Retired|
 
-## Get All Kittens
+> Example responses
 
-```ruby
-require 'kittn'
+> 200 Response
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
 ```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+"string"
 ```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+"string"
 ```
 
-This endpoint retrieves all kittens.
+<h3 id="generate-a-date-responses">Responses</h3>
 
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated Date|string|
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+This operation does not require authentication
 </aside>
 
-## Get a Specific Kitten
+<h1 id="pascalate-api-documentation-id">Id</h1>
 
-```ruby
-require 'kittn'
+Generate Valid random Identifiers
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Generates a random numerical identifier with a given length
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+> Code samples
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
+# You can also use wget
+curl -X GET https://fegendata.azurewebsites.net/api/Id/numerical
+
 ```
 
-```javascript
-const kittn = require('kittn');
+```nodejs
+const fetch = require('node-fetch');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+fetch('https://fegendata.azurewebsites.net/api/Id/numerical',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
 ```
 
-> The above command returns JSON structured like this:
+`GET /api/Id/numerical`
+
+<h3 id="generates-a-random-numerical-identifier-with-a-given-length-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|length|query|integer(int32)|false|none|
+
+<h3 id="generates-a-random-numerical-identifier-with-a-given-length-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated value|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Generates a Random US Social Security Number (SSN)
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://fegendata.azurewebsites.net/api/Id/ssn
+
+```
+
+```nodejs
+const fetch = require('node-fetch');
+
+fetch('https://fegendata.azurewebsites.net/api/Id/ssn',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`GET /api/Id/ssn`
+
+<h3 id="generates-a-random-us-social-security-number-(ssn)-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|format|query|boolean|false|Format SSN(xxx-xx-xxxx) or not (xxxxxxxxx)|
+
+<h3 id="generates-a-random-us-social-security-number-(ssn)-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated SSN|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Generate a random US EIN
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://fegendata.azurewebsites.net/api/Id/ein
+
+```
+
+```nodejs
+const fetch = require('node-fetch');
+
+fetch('https://fegendata.azurewebsites.net/api/Id/ein',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`GET /api/Id/ein`
+
+<h3 id="generate-a-random-us-ein-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|format|query|boolean|false|Format EIN(XX-XXXXX) or not (XXXXXXX)|
+
+<h3 id="generate-a-random-us-ein-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated EIN|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Generates the Soundex representation of a name
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://fegendata.azurewebsites.net/api/Id/soundex
+
+```
+
+```nodejs
+const fetch = require('node-fetch');
+
+fetch('https://fegendata.azurewebsites.net/api/Id/soundex',
+{
+  method: 'GET'
+
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`GET /api/Id/soundex`
+
+<h3 id="generates-the-soundex-representation-of-a-name-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|name|query|string|false|Name|
+
+<h3 id="generates-the-soundex-representation-of-a-name-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated soundex representation|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Generates a valid Drivers license number. Currently work only for Florida Numbers
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://fegendata.azurewebsites.net/api/Id/driverlicense \
+  -H 'Content-Type: application/json-patch+json'
+
+```
+
+```nodejs
+const fetch = require('node-fetch');
+const inputBody = {
+  "country": "string",
+  "state": "string",
+  "firstName": "string",
+  "middleName": "string",
+  "lastName": "string",
+  "dateOfBirth": "2019-08-24T14:15:22Z",
+  "gender": "string"
+};
+const headers = {
+  'Content-Type':'application/json-patch+json'
+};
+
+fetch('https://fegendata.azurewebsites.net/api/Id/driverlicense',
+{
+  method: 'POST',
+  body: JSON.stringify(inputBody),
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+`POST /api/Id/driverlicense`
+
+> Body parameter
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "country": "string",
+  "state": "string",
+  "firstName": "string",
+  "middleName": "string",
+  "lastName": "string",
+  "dateOfBirth": "2019-08-24T14:15:22Z",
+  "gender": "string"
 }
 ```
 
-This endpoint retrieves a specific kitten.
+<h3 id="generates-a-valid-drivers-license-number.-currently-work-only-for-florida-numbers-parameters">Parameters</h3>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|format|query|boolean|false|none|
+|body|body|[DriverLicenseRequest](#schemadriverlicenserequest)|false|none|
 
-### HTTP Request
+<h3 id="generates-a-valid-drivers-license-number.-currently-work-only-for-florida-numbers-responses">Responses</h3>
 
-`GET http://example.com/kittens/<ID>`
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated drivers license|None|
 
-### URL Parameters
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+# Schemas
 
-## Delete a Specific Kitten
+<h2 id="tocS_DateRequestType">DateRequestType</h2>
+<!-- backwards compatibility -->
+<a id="schemadaterequesttype"></a>
+<a id="schema_DateRequestType"></a>
+<a id="tocSdaterequesttype"></a>
+<a id="tocsdaterequesttype"></a>
 
-```ruby
-require 'kittn'
+```json
+"Birthday"
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
 ```
 
-```python
-import kittn
+### Properties
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|*anonymous*|Birthday|
+|*anonymous*|Future|
+|*anonymous*|Past|
+
+<h2 id="tocS_UserAgeType">UserAgeType</h2>
+<!-- backwards compatibility -->
+<a id="schemauseragetype"></a>
+<a id="schema_UserAgeType"></a>
+<a id="tocSuseragetype"></a>
+<a id="tocsuseragetype"></a>
+
+```json
+"Infant"
+
 ```
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
+### Properties
 
-```javascript
-const kittn = require('kittn');
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|string|false|none|none|
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+#### Enumerated Values
 
-> The above command returns JSON structured like this:
+|Property|Value|
+|---|---|
+|*anonymous*|Infant|
+|*anonymous*|Child|
+|*anonymous*|Teenager|
+|*anonymous*|Adult|
+|*anonymous*|Youth|
+|*anonymous*|Retired|
+
+<h2 id="tocS_DriverLicenseRequest">DriverLicenseRequest</h2>
+<!-- backwards compatibility -->
+<a id="schemadriverlicenserequest"></a>
+<a id="schema_DriverLicenseRequest"></a>
+<a id="tocSdriverlicenserequest"></a>
+<a id="tocsdriverlicenserequest"></a>
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+  "country": "string",
+  "state": "string",
+  "firstName": "string",
+  "middleName": "string",
+  "lastName": "string",
+  "dateOfBirth": "2019-08-24T14:15:22Z",
+  "gender": "string"
 }
+
 ```
 
-This endpoint deletes a specific kitten.
+### Properties
 
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|country|string¦null|false|none|none|
+|state|string¦null|false|none|none|
+|firstName|string¦null|false|none|none|
+|middleName|string¦null|false|none|none|
+|lastName|string¦null|false|none|none|
+|dateOfBirth|string(date-time)|false|none|none|
+|gender|string¦null|false|none|none|
 

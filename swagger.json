@@ -1,0 +1,302 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Pascalate API Documentation",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://fegendata.azurewebsites.net",
+      "description": "Pascalate helps App Developers generate random yet valid test Data to test or seed their applications"
+    }
+  ],
+  "paths": {
+    "/api/Date": {
+      "get": {
+        "tags": [
+          "Date"
+        ],
+        "summary": "Generate a date",
+        "description": "sample date remarks",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Date request type",
+            "schema": {
+              "$ref": "#/components/schemas/DateRequestType"
+            }
+          },
+          {
+            "name": "ageType",
+            "in": "query",
+            "description": "Desired age type. Used only if type is set to birthday",
+            "schema": {
+              "$ref": "#/components/schemas/UserAgeType"
+            }
+          },
+          {
+            "name": "min",
+            "in": "query",
+            "description": "Minimum date",
+            "schema": {
+              "type": "string",
+              "description": "Minimum date",
+              "nullable": true,
+              "example": "12/20/1930"
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "description": "Maximum date",
+            "schema": {
+              "type": "string",
+              "description": "Maximum date",
+              "nullable": true,
+              "example": "1/1/2020"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated Date",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Id/numerical": {
+      "get": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Generates a random numerical identifier with a given length",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated value"
+          }
+        }
+      }
+    },
+    "/api/Id/ssn": {
+      "get": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Generates a Random US Social Security Number (SSN)",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Format SSN(xxx-xx-xxxx) or not (xxxxxxxxx)",
+            "schema": {
+              "type": "boolean",
+              "description": "Format SSN(xxx-xx-xxxx) or not (xxxxxxxxx)",
+              "example": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated SSN"
+          }
+        }
+      }
+    },
+    "/api/Id/ein": {
+      "get": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Generate a random US EIN",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Format EIN(XX-XXXXX) or not (XXXXXXX)",
+            "schema": {
+              "type": "boolean",
+              "description": "Format EIN(XX-XXXXX) or not (XXXXXXX)",
+              "example": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated EIN"
+          }
+        }
+      }
+    },
+    "/api/Id/soundex": {
+      "get": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Generates the Soundex representation of a name",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name",
+            "schema": {
+              "type": "string",
+              "description": "Name",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated soundex representation"
+          }
+        }
+      }
+    },
+    "/api/Id/driverlicense": {
+      "post": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Generates a valid Drivers license number. Currently work only for Florida Numbers",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "boolean",
+              "description": ""
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverLicenseRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverLicenseRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverLicenseRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverLicenseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated drivers license"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DateRequestType": {
+        "enum": [
+          "Birthday",
+          "Future",
+          "Past"
+        ],
+        "type": "string"
+      },
+      "UserAgeType": {
+        "enum": [
+          "Infant",
+          "Child",
+          "Teenager",
+          "Adult",
+          "Youth",
+          "Retired"
+        ],
+        "type": "string"
+      },
+      "DriverLicenseRequest": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Date",
+      "description": "Date Generators"
+    },
+    {
+      "name": "Id",
+      "description": "Generate Valid random Identifiers"
+    }
+  ]
+}
