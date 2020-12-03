@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Pascalate API Documentation",
+    "title": "Pascalate Random Data API",
     "version": "v1"
   },
   "servers": [
