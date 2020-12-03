@@ -425,29 +425,33 @@
         "type": "string"
       },
       "DriverLicenseRequest": {
+        "required": [
+          "country",
+          "dateOfBirth",
+          "firstName",
+          "gender",
+          "lastName",
+          "state"
+        ],
         "type": "object",
         "properties": {
           "country": {
             "type": "string",
-            "default": "us",
-            "nullable": true
+            "default": "us"
           },
           "state": {
             "type": "string",
-            "default": "fl",
-            "nullable": true
+            "default": "fl"
           },
           "firstName": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "middleName": {
             "type": "string",
             "nullable": true
           },
           "lastName": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "dateOfBirth": {
             "type": "string",
@@ -455,8 +459,7 @@
           },
           "gender": {
             "type": "string",
-            "default": "female",
-            "nullable": true
+            "default": "female"
           }
         },
         "additionalProperties": false

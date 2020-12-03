@@ -360,13 +360,13 @@ curl --request POST \
 |---|---|---|---|---|
 |format|query|boolean|false|none|
 |body|body|[DriverLicenseRequest](#schemadriverlicenserequest)|false|none|
-|» country|body|string¦null|false|none|
-|» state|body|string¦null|false|none|
-|» firstName|body|string¦null|false|none|
+|» country|body|string|true|none|
+|» state|body|string|true|none|
+|» firstName|body|string|true|none|
 |» middleName|body|string¦null|false|none|
-|» lastName|body|string¦null|false|none|
-|» dateOfBirth|body|string(date-time)|false|none|
-|» gender|body|string¦null|false|none|
+|» lastName|body|string|true|none|
+|» dateOfBirth|body|string(date-time)|true|none|
+|» gender|body|string|true|none|
 
 > Example responses
 
@@ -471,11 +471,11 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|country|string¦null|false|none|none|
-|state|string¦null|false|none|none|
-|firstName|string¦null|false|none|none|
+|country|string|true|none|none|
+|state|string|true|none|none|
+|firstName|string|true|none|none|
 |middleName|string¦null|false|none|none|
-|lastName|string¦null|false|none|none|
-|dateOfBirth|string(date-time)|false|none|none|
-|gender|string¦null|false|none|none|
+|lastName|string|true|none|none|
+|dateOfBirth|string(date-time)|true|none|none|
+|gender|string|true|none|none|
 
