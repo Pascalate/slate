@@ -137,17 +137,7 @@
           "200": {
             "description": "Generated Date",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreditCardModel"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreditCardModel"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreditCardModel"
                 }
