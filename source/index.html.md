@@ -28,43 +28,21 @@ Base URLs:
 
 Date Generators
 
-## Generate a date
+## Dates
 
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET http://api.pascalate.com/api/Date \
-  -H 'Accept: text/plain'
-
-```
-
-```nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'text/plain'
-};
-
-fetch('http://api.pascalate.com/api/Date',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+curl --request GET \
+  --url http://api.pascalate.com/api/Date \
+  --header 'Accept: text/plain'
 ```
 
 `GET /api/Date`
 
 sample date remarks
 
-<h3 id="generate-a-date-parameters">Parameters</h3>
+<h3 id="dates-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -99,7 +77,7 @@ sample date remarks
 "string"
 ```
 
-<h3 id="generate-a-date-responses">Responses</h3>
+<h3 id="dates-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -111,222 +89,253 @@ This operation does not require authentication
 
 <h1 id="pascalate-api-documentation-id">Id</h1>
 
-Generate Valid random Identifiers
+Valid random Identifiers
 
-## Generates a random numerical identifier with a given length
+## Numerical identifier of a given length
 
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET http://api.pascalate.com/api/Id/numerical
-
+curl --request GET \
+  --url http://api.pascalate.com/api/Id/numeric \
+  --header 'Accept: text/plain'
 ```
 
-```nodejs
-const fetch = require('node-fetch');
+`GET /api/Id/numeric`
 
-fetch('http://api.pascalate.com/api/Id/numerical',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-`GET /api/Id/numerical`
-
-<h3 id="generates-a-random-numerical-identifier-with-a-given-length-parameters">Parameters</h3>
+<h3 id="numerical-identifier-of-a-given-length-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |length|query|integer(int32)|false|none|
 
-<h3 id="generates-a-random-numerical-identifier-with-a-given-length-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="numerical-identifier-of-a-given-length-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated value|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated numeric value|string|
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## Generates a Random US Social Security Number (SSN)
+## Alphanumeric string
 
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET http://api.pascalate.com/api/Id/ssn
-
+curl --request GET \
+  --url http://api.pascalate.com/api/Id/alphanumeric \
+  --header 'Accept: text/plain'
 ```
 
-```nodejs
-const fetch = require('node-fetch');
+`GET /api/Id/alphanumeric`
 
-fetch('http://api.pascalate.com/api/Id/ssn',
-{
-  method: 'GET'
+<h3 id="alphanumeric-string-parameters">Parameters</h3>
 
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|length|query|integer(int32)|false|length|
+|with_numbers|query|boolean|false|include numbers|
 
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="alphanumeric-string-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated value|string|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Guid
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url http://api.pascalate.com/api/Id/guid \
+  --header 'Accept: text/plain'
+```
+
+`GET /api/Id/guid`
+
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="guid-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated Guid|string|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Social Security Number (SSN)
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url http://api.pascalate.com/api/Id/ssn \
+  --header 'Accept: text/plain'
 ```
 
 `GET /api/Id/ssn`
 
-<h3 id="generates-a-random-us-social-security-number-(ssn)-parameters">Parameters</h3>
+<h3 id="social-security-number-(ssn)-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |format|query|boolean|false|Format SSN(xxx-xx-xxxx) or not (xxxxxxxxx)|
 
-<h3 id="generates-a-random-us-social-security-number-(ssn)-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="social-security-number-(ssn)-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated SSN|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated SSN|string|
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## Generate a random US EIN
+## US EIN
 
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET http://api.pascalate.com/api/Id/ein
-
-```
-
-```nodejs
-const fetch = require('node-fetch');
-
-fetch('http://api.pascalate.com/api/Id/ein',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+curl --request GET \
+  --url http://api.pascalate.com/api/Id/ein \
+  --header 'Accept: text/plain'
 ```
 
 `GET /api/Id/ein`
 
-<h3 id="generate-a-random-us-ein-parameters">Parameters</h3>
+<h3 id="us-ein-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |format|query|boolean|false|Format EIN(XX-XXXXX) or not (XXXXXXX)|
 
-<h3 id="generate-a-random-us-ein-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="us-ein-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated EIN|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated EIN|string|
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## Generates the Soundex representation of a name
+## Soundex representation of a name
 
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET http://api.pascalate.com/api/Id/soundex
-
-```
-
-```nodejs
-const fetch = require('node-fetch');
-
-fetch('http://api.pascalate.com/api/Id/soundex',
-{
-  method: 'GET'
-
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+curl --request GET \
+  --url http://api.pascalate.com/api/Id/soundex \
+  --header 'Accept: text/plain'
 ```
 
 `GET /api/Id/soundex`
 
-<h3 id="generates-the-soundex-representation-of-a-name-parameters">Parameters</h3>
+<h3 id="soundex-representation-of-a-name-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |name|query|string|false|Name|
 
-<h3 id="generates-the-soundex-representation-of-a-name-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="soundex-representation-of-a-name-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated soundex representation|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated Soundex representation|string|
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## Generates a valid Drivers license number. Currently work only for Florida Numbers
+## valid Drivers license number. Currently work only for Florida Numbers
 
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X POST http://api.pascalate.com/api/Id/driverlicense \
-  -H 'Content-Type: application/json-patch+json'
-
-```
-
-```nodejs
-const fetch = require('node-fetch');
-const inputBody = {
-  "country": "string",
-  "state": "string",
-  "firstName": "string",
-  "middleName": "string",
-  "lastName": "string",
-  "dateOfBirth": "2019-08-24T14:15:22Z",
-  "gender": "string"
-};
-const headers = {
-  'Content-Type':'application/json-patch+json'
-};
-
-fetch('http://api.pascalate.com/api/Id/driverlicense',
-{
-  method: 'POST',
-  body: JSON.stringify(inputBody),
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
+curl --request POST \
+  --url http://api.pascalate.com/api/Id/driverlicense \
+  --header 'Accept: text/plain' \
+  --header 'Content-Type: application/json-patch+json' \
+  --data '{"country":"string","state":"string","firstName":"string","middleName":"string","lastName":"string","dateOfBirth":"2019-08-24T14:15:22Z","gender":"string"}'
 ```
 
 `POST /api/Id/driverlicense`
@@ -345,18 +354,37 @@ fetch('http://api.pascalate.com/api/Id/driverlicense',
 }
 ```
 
-<h3 id="generates-a-valid-drivers-license-number.-currently-work-only-for-florida-numbers-parameters">Parameters</h3>
+<h3 id="valid-drivers-license-number.-currently-work-only-for-florida-numbers-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |format|query|boolean|false|none|
 |body|body|[DriverLicenseRequest](#schemadriverlicenserequest)|false|none|
+|» country|body|string¦null|false|none|
+|» state|body|string¦null|false|none|
+|» firstName|body|string¦null|false|none|
+|» middleName|body|string¦null|false|none|
+|» lastName|body|string¦null|false|none|
+|» dateOfBirth|body|string(date-time)|false|none|
+|» gender|body|string¦null|false|none|
 
-<h3 id="generates-a-valid-drivers-license-number.-currently-work-only-for-florida-numbers-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="valid-drivers-license-number.-currently-work-only-for-florida-numbers-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated drivers license|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated Drivers License|string|
 
 <aside class="success">
 This operation does not require authentication

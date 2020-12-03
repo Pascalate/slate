@@ -2,7 +2,7 @@
 
 #Create slate from Swagger
 
-widdershins --search false --language_tabs 'shell:Curl' 'nodejs:NodeJS' --summary swagger.json -o pascalate.md
+widdershins --search false --expand-body true --httpsnippet true --language_tabs 'shell:Curl' 'nodejs:NodeJS' --summary swagger.json -o pascalate.md
 
 mv pascalate.md source/index.html.md
 

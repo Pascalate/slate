@@ -16,7 +16,7 @@
         "tags": [
           "Date"
         ],
-        "summary": "Generate a date",
+        "summary": "Dates",
         "description": "sample date remarks",
         "parameters": [
           {
@@ -82,12 +82,12 @@
         }
       }
     },
-    "/api/Id/numerical": {
+    "/api/Id/numeric": {
       "get": {
         "tags": [
           "Id"
         ],
-        "summary": "Generates a random numerical identifier with a given length",
+        "summary": "Numerical identifier of a given length",
         "parameters": [
           {
             "name": "length",
@@ -102,7 +102,108 @@
         ],
         "responses": {
           "200": {
-            "description": "Generated value"
+            "description": "Generated numeric value",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Id/alphanumeric": {
+      "get": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Alphanumeric string",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "description": "length",
+            "schema": {
+              "type": "integer",
+              "description": "length",
+              "format": "int32",
+              "example": 9
+            }
+          },
+          {
+            "name": "with_numbers",
+            "in": "query",
+            "description": "include numbers",
+            "schema": {
+              "type": "boolean",
+              "description": "include numbers",
+              "default": true,
+              "example": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated value",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Id/guid": {
+      "get": {
+        "tags": [
+          "Id"
+        ],
+        "summary": "Guid",
+        "responses": {
+          "200": {
+            "description": "Generated Guid",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -112,7 +213,7 @@
         "tags": [
           "Id"
         ],
-        "summary": "Generates a Random US Social Security Number (SSN)",
+        "summary": "Social Security Number (SSN)",
         "parameters": [
           {
             "name": "format",
@@ -127,7 +228,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Generated SSN"
+            "description": "Generated SSN",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -137,7 +255,7 @@
         "tags": [
           "Id"
         ],
-        "summary": "Generate a random US EIN",
+        "summary": "US EIN",
         "parameters": [
           {
             "name": "format",
@@ -152,7 +270,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Generated EIN"
+            "description": "Generated EIN",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -162,7 +297,7 @@
         "tags": [
           "Id"
         ],
-        "summary": "Generates the Soundex representation of a name",
+        "summary": "Soundex representation of a name",
         "parameters": [
           {
             "name": "name",
@@ -177,7 +312,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Generated soundex representation"
+            "description": "Generated Soundex representation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -187,7 +339,7 @@
         "tags": [
           "Id"
         ],
-        "summary": "Generates a valid Drivers license number. Currently work only for Florida Numbers",
+        "summary": "valid Drivers license number. Currently work only for Florida Numbers",
         "parameters": [
           {
             "name": "format",
@@ -226,7 +378,24 @@
         },
         "responses": {
           "200": {
-            "description": "Generated drivers license"
+            "description": "Generated Drivers License",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -296,7 +465,7 @@
     },
     {
       "name": "Id",
-      "description": "Generate Valid random Identifiers"
+      "description": "Valid random Identifiers"
     }
   ]
 }
