@@ -390,6 +390,91 @@ curl --request POST \
 This operation does not require authentication
 </aside>
 
+<h1 id="pascalate-api-documentation-finance">Finance</h1>
+
+## Credit Card Name
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url http://api.pascalate.com/api/Finance/creditcard/name \
+  --header 'Accept: text/plain'
+```
+
+`GET /api/Finance/creditcard/name`
+
+Returns a random Credit Card Name
+
+> Example responses
+
+> 200 Response
+
+```
+"string"
+```
+
+```json
+"string"
+```
+
+<h3 id="credit-card-name-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Credit Card Name|string|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Credit Card Data
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url http://api.pascalate.com/api/Finance/creditcard/details \
+  --header 'Accept: text/plain'
+```
+
+`GET /api/Finance/creditcard/details`
+
+Generates random Valid Credit Card Details
+
+<h3 id="credit-card-data-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|name|query|string|false|Optional Credit card name|
+
+> Example responses
+
+> 200 Response
+
+```
+{"issuer":"string","number":"string","month":"string","year":"string"}
+```
+
+```json
+{
+  "issuer": "string",
+  "number": "string",
+  "month": "string",
+  "year": "string"
+}
+```
+
+<h3 id="credit-card-data-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Generated Date|[CreditCardModel](#schemacreditcardmodel)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 # Schemas
 
 <h2 id="tocS_DateRequestType">DateRequestType</h2>
@@ -446,6 +531,32 @@ This operation does not require authentication
 |*anonymous*|Adult|
 |*anonymous*|Youth|
 |*anonymous*|Retired|
+
+<h2 id="tocS_CreditCardModel">CreditCardModel</h2>
+<!-- backwards compatibility -->
+<a id="schemacreditcardmodel"></a>
+<a id="schema_CreditCardModel"></a>
+<a id="tocScreditcardmodel"></a>
+<a id="tocscreditcardmodel"></a>
+
+```json
+{
+  "issuer": "string",
+  "number": "string",
+  "month": "string",
+  "year": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|issuer|string¦null|false|none|none|
+|number|string¦null|false|none|none|
+|month|string¦null|false|none|none|
+|year|string¦null|false|none|none|
 
 <h2 id="tocS_DriverLicenseRequest">DriverLicenseRequest</h2>
 <!-- backwards compatibility -->

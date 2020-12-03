@@ -82,6 +82,81 @@
         }
       }
     },
+    "/api/Finance/creditcard/name": {
+      "get": {
+        "tags": [
+          "Finance"
+        ],
+        "summary": "Credit Card Name",
+        "description": "Returns a random Credit Card Name",
+        "responses": {
+          "200": {
+            "description": "Credit Card Name",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Finance/creditcard/details": {
+      "get": {
+        "tags": [
+          "Finance"
+        ],
+        "summary": "Credit Card Data",
+        "description": "Generates random Valid Credit Card Details",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Optional Credit card name",
+            "schema": {
+              "type": "string",
+              "description": "Optional Credit card name",
+              "nullable": true,
+              "example": "Visa"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated Date",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Id/numeric": {
       "get": {
         "tags": [
@@ -423,6 +498,28 @@
           "Retired"
         ],
         "type": "string"
+      },
+      "CreditCardModel": {
+        "type": "object",
+        "properties": {
+          "issuer": {
+            "type": "string",
+            "nullable": true
+          },
+          "number": {
+            "type": "string",
+            "nullable": true
+          },
+          "month": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "DriverLicenseRequest": {
         "required": [
