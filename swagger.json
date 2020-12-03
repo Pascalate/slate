@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Pascalate Random Data API",
+    "title": "Pascalate API Documentation",
     "version": "v1"
   },
   "servers": [
@@ -96,7 +96,8 @@
             "schema": {
               "type": "integer",
               "description": "",
-              "format": "int32"
+              "format": "int32",
+              "default": 7
             }
           }
         ],
@@ -139,6 +140,7 @@
               "type": "integer",
               "description": "length",
               "format": "int32",
+              "default": 7,
               "example": 9
             }
           },
@@ -427,10 +429,12 @@
         "properties": {
           "country": {
             "type": "string",
+            "default": "us",
             "nullable": true
           },
           "state": {
             "type": "string",
+            "default": "fl",
             "nullable": true
           },
           "firstName": {
@@ -451,6 +455,7 @@
           },
           "gender": {
             "type": "string",
+            "default": "female",
             "nullable": true
           }
         },
