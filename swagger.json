@@ -122,14 +122,11 @@
         "description": "Generates random Valid Credit Card Details",
         "parameters": [
           {
-            "name": "name",
+            "name": "cardIssuer",
             "in": "query",
-            "description": "Optional Credit card name",
             "schema": {
               "type": "string",
-              "description": "Optional Credit card name",
-              "nullable": true,
-              "example": "Visa"
+              "nullable": true
             }
           }
         ],

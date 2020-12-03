@@ -435,7 +435,7 @@ This operation does not require authentication
 ```shell
 curl --request GET \
   --url http://api.pascalate.com/api/Finance/creditcard/details \
-  --header 'Accept: text/plain'
+  --header 'Accept: application/json'
 ```
 
 `GET /api/Finance/creditcard/details`
@@ -446,15 +446,11 @@ Generates random Valid Credit Card Details
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|name|query|string|false|Optional Credit card name|
+|cardIssuer|query|string|false|none|
 
 > Example responses
 
 > 200 Response
-
-```
-{"issuer":"string","number":"string","month":"string","year":"string"}
-```
 
 ```json
 {
